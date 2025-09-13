@@ -14,10 +14,6 @@ function output() {
         const deleteButton = document.createElement('button');
         deleteButton.textContent = '❌';
         deleteButton.setAttribute('aria-label', `Delete ${chapter}`);
-        deleteButton.addEventListener('click', () => {
-            chapters.splice(chapters.indexOf(chapter), 1);
-            output();
-        });
 
         li.append(deleteButton);
         list.append(li);
@@ -25,10 +21,19 @@ function output() {
 }
 
 button.addEventListener('click', () => {
-    if (input.ariaValueMax.trim() !== '') {
+    input.focus();
+
+    if (input.value.trim() !== '') {
         chapters.push(input.value.trim());
         output();
         input.value = '';
-        input.focus();
+    }
+});
+
+list.addEventListener('click', (e) => {
+    if (e.target.tagName === 'BUTTON') {
+        const chapterText = e.target.parentNode.firstChild.textContent;
+        chapters.splice(chapters.indexOf(chapterText), 1);
+        output();
     }
 });
