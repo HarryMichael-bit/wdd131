@@ -1,0 +1,16 @@
+@media (min-width: 768px) {
+    #menu {
+        display: flex !important;
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 0;
+    }
+
+    #hamburger {
+        display: none;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
