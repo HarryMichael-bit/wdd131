@@ -143,4 +143,10 @@ footer {
     .data-panel {
         order: 2;
     }
+
+    @media (max-width: 768px) {
+        .desktop-only {
+            display: none;
+        }
+    }
 }
