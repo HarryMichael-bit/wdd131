@@ -1,0 +1,146 @@
+:root {
+    --red: #ce1126;
+    --yellow: #fcd116;
+    --green: #006b3f;
+    --black: #000000;
+    --text-light: #fff;
+    --panel-bg: rgba(0, 0, 0, 0.6);
+    --panel-title: #fcd116;
+}
+
+/* Base */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-light);
+}
+
+/* Header */
+header {
+    background: var(--red);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1rem;
+}
+
+header h1 {
+    margin: 1;
+}
+
+/* Hero Section (desktop background) */
+.hero-section {
+    position: relative;
+    background: url("../images/ghana-large.webp") no-repeat center center/cover;
+    min-height: 80vh;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45));
+}
+
+/* Hide mobile image by default */
+.hero-mobile {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+/* Panels */
+.panel {
+    position: absolute;
+    background: var(--panel-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    width: 250px;
+    z-index: 1;
+}
+
+.panel h2 {
+    margin-top: 0;
+    color: var(--panel-title);
+}
+
+.panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.panel li {
+    margin: 0.3rem 0;
+}
+
+.panel span:first-child {
+    font-weight: bold;
+}
+
+/* Weather Icon */
+.weather-icon {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.weather-icon img {
+    width: 50px;
+    height: auto;
+}
+
+/* Panel positions */
+.data-panel {
+    top: 20px;
+    left: 20px;
+}
+
+.weather-panel {
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Footer */
+footer {
+    background: var(--black);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+    .hero-section {
+        background: yellow;
+        min-height: auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-section::before {
+        display: none;
+    }
+
+    .hero-mobile {
+        display: block;
+        max-height: 250px;
+        object-fit: cover;
+    }
+
+    .panel {
+        position: static;
+        width: auto;
+        margin: 1rem;
+        background: var(--green);
+    }
+
+    .weather-panel {
+        order: 1;
+    }
+
+    .data-panel {
+        order: 2;
+    }
+}

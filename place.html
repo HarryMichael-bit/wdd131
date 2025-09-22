@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghana</title>
+    <link rel="stylesheet" href="styles/place.css" />
+    <script src="scripts/place.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Ghana</h1>
+    </header>
+
+    <main class="hero-section">
+        <!-- Mobile Hero Image -->
+        <img src="images/ghana-small.webp" alt="Scenic view of Ghana" class="hero-mobile" />
+
+        <!-- Weather Panel -->
+        <section class="panel weather-panel">
+            <h2>Weather ⛅</h2>
+            <div class="weather-icon">
+                <img src="images/weather.svg" alt="Weather icon" />
+            </div>
+            <ul>
+                <li><span>Temperature:</span> <span id="temp">10</span> °C</li>
+                <li><span>Conditions:</span> Partly Cloudy</li>
+                <li><span>Wind:</span> <span id="wind">5</span> km/h</li>
+                <li><span>Wind Chill:</span> <span id="windchill">9.8</span> °C</li>
+            </ul>
+        </section>
+
+        <!-- Data Panel -->
+        <section class="panel data-panel">
+            <h2>Data</h2>
+            <ul>
+                <li><span>Area:</span> 238,533 sq km</li>
+                <li><span>Population:</span> 34,000,000</li>
+                <li><span>Capital:</span> Accra</li>
+                <li><span>Languages:</span> English, Akan</li>
+                <li><span>Currency:</span> Ghanaian Cedi</li>
+                <li><span>Time Zone:</span> UTC +0</li>
+                <li><span>Calling:</span> +233</li>
+                <li><span>Internet:</span> .gh</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;<span id="year"></span> Ghana Tourism</p>
+        <p>Last Modification: <span id="lastmodified"></span></p>
+    </footer>
+</body>
+
+</html>
