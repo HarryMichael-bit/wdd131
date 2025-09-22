@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ghana</title>
+    <meta name="description" content="Responsive country page for Ghana which includes weather, data, and hero-image." />
+    <meta name="author" content="Michael Asamoah" />
+    <title>Country Page - Ghana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles/place.css" />
     <script src="scripts/place.js" defer></script>
 </head>
@@ -16,12 +19,16 @@
 
     <main class="hero-section">
         <!-- Mobile Hero Image -->
-        <img src="images/ghana-small.webp" alt="Scenic view of Ghana" class="hero-mobile" />
+         <picture>
+            <source srcset="images/ghana-large.webp" media="(min-width: 1500px)" />
+            <source srcset="images/ghana-medium.webp" media="(min-width: 1000px)" />
+            <img src="images/ghana-small.webp" alt="Scenic view of Ghana" width="500" height="250" />
+         </picture>
 
         <!-- Weather Panel -->
         <section class="panel weather-panel">
             <h2>Weather ⛅</h2>
-            <div class="weather-icon">
+            <div class="weather-icon mobile-only">
                 <img src="images/weather.svg" alt="Weather icon" />
             </div>
             <ul>
