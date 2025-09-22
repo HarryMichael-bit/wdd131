@@ -91,7 +91,7 @@ header h1 {
 
 /* Panel positions */
 .data-panel {
-    center: 20px;
+    container: 20px;
     left: 20px;
 }
 
