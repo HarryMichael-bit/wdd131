@@ -4,6 +4,7 @@
     --green: #006b3f;
     --black: #000000;
     --text-light: #fff;
+    --text-dark: #222;
     --panel-bg: rgba(0, 0, 0, 0.6);
     --panel-title: #fcd116;
 }
@@ -28,34 +29,23 @@ header h1 {
     margin: 0;
 }
 
-/* Hero Section (desktop background) */
+/* Hero Section and responsive image */
 .hero-section {
     position: relative;
-    background: url("../images/ghana-large.webp") no-repeat center center/cover;
-    min-height: 80vh;
 }
-
-.hero-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45));
-}
-
-/* Hide mobile image by default */
-.hero-mobile {
-    display: none;
+picture img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
-/* Panels */
+/* Overlay panels */
 .panel {
     position: absolute;
     background: var(--panel-bg);
     padding: 1rem;
     border-radius: 8px;
-    width: 250px;
+    width: 260px;
     z-index: 1;
 }
 
@@ -71,14 +61,14 @@ header h1 {
 }
 
 .panel li {
-    margin: 0.3rem 0;
+    margin: 0.35rem 0;
 }
 
 .panel span:first-child {
     font-weight: bold;
 }
 
-/* Weather Icon */
+/* Weather: mobile-only SVG */
 .weather-icon {
     text-align: center;
     margin-bottom: 0.5rem;
@@ -89,12 +79,19 @@ header h1 {
     height: auto;
 }
 
-/* Panel positions */
-.data-panel {
-    container: 20px;
-    left: 20px;
+/* Desktop-only emoticon via pseudo-element */
+.weather-panel h2::after {
+    content: " ⛅";
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    display: inline;
 }
 
+/* Panel positions (desktop) */
+.data-panel {
+    top: 20px;
+    left: 20px;
+}
 .weather-panel {
     bottom: 20px;
     right: 20px;
@@ -106,48 +103,44 @@ footer {
     color: var(--text-light);
     text-align: center;
     padding: 1rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 /* Mobile Layout */
 @media (max-width: 768px) {
+    /* Stack content after the hero image */
     .hero-section {
-        background: yellow;
-        min-height: auto;
-        padding: 0;
         display: flex;
         flex-direction: column;
     }
 
-    .hero-section::before {
-        display: none;
-    }
-
-    .hero-mobile {
-        display: block;
-        max-height: 250px;
-        object-fit: cover;
-    }
-
+    /* Panels become normal blocks */
     .panel {
         position: static;
         width: auto;
         margin: 1rem;
+        background: var(--black);
+    }
+
+    /* Weather panel specifically green in mobile */
+    .weather-panel {
         background: var(--green);
     }
 
-    .weather-panel {
-        order: 1;
+    /* Hide desktop emoticon on mobile */
+    .weather-panel h2::after {
+        display: none;
     }
 
-    .data-panel {
-        order: 2;
+    /* Show SVG only on mobile */
+    .mobile-only {
+        display: block;
     }
+}
 
-
-    @media (max-width: 768px) {
-        .desktop-only {
-            display: none;
-        }
+/* Desktop: hide mobile-only elements */
+@media (min-width: 769px) {
+    .mobile-only {
+        display: none;
     }
 }
