@@ -1,0 +1,25 @@
+/* Two columns at 32rem (512px) and up */
+@media only screen and (min-width: 32rem) {
+    #temple-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Three columns at 48rem (768px) and up */
+@media only screen and (min-width: 48rem) {
+    #temple-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    header nav {
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
+/* Four columns at 64rem (1024px) and up */
+@media only screen and (min-width: 64rem) {
+    #temple-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
