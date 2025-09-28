@@ -1,55 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Dynamic picture album of temples with filtering and lazy loading." />
     <meta name="author" content="Michael Asamoah" />
-    <title>Picture Album Enhancement</title>
+    <title>Temple Album Enhancement</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="styles/filtered-temples.css" />
-    <!-- Overrides for larger viewports -->
     <link rel="stylesheet" href="styles/filtered-temples-large.css" />
 </head>
+
 <body>
     <header>
         <nav id="menu">
-        <nav>
-            <a href="#" data-filter="all">Home</button>
-            <a href="#" data-filter="old">Old</button>
-            <a href="#" data-filter="new">New</button>
-            <a href="#" data-filter="large">Large</button>
-            <a href="#" data-filter="small">Small</button>
+            <a href="#" data-filter="all">Home</a>
+            <a href="#" data-filter="old">Old</a>
+            <a href="#" data-filter="new">New</a>
+            <a href="#" data-filter="large">Large</a>
+            <a href="#" data-filter="small">Small</a>
         </nav>
     </header>
 
     <main>
         <h1>Temple Album</h1>
-    
-    <!-- Templates definition -->
-    <template id="temple-template">
-        <article class="temple-card">
-            <img loading="lazy" src="" alt="" />
-            <h3 class="temple-name"></h3>
-            <p class="temple-location"></p>
-            <p class="temple-dedicated"></p>
-            <p class="temple-area"></p>
-        </article>
-    </template>
 
-    <!-- Container for generated cards -->
-     <section id="temple-list"></section>
+        <!-- Templates definition -->
+        <template id="temple-template">
+            <article class="temple-card">
+                <img loading="lazy" src="" alt="" />
+                <div class="temple-info"></div>
+                <h3 class="temple-name"></h3>
+                <p class="temple-location"></p>
+                <p class="temple-dedicated"></p>
+                <p class="temple-area"></p>
+            </article>
+        </template>
+
+        <!-- Container for generated cards -->
+        <section id="temple-list"></section>
+    </main>
 
     <footer>
         <p>&copy; <span id="year"></span> Michael Asamoah | Last Modified: <span id="lastModified"></span></p>
     </footer>
-    
+
     <!-- Data and logic -->
     <script src="scripts/templateData.js" defer></script>
     <script src="scripts/filtered-temples.js" defer></script>
 </body>
+
 </html>
