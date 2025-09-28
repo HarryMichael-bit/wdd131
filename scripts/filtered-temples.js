@@ -24,9 +24,10 @@ function displayTemples(data) {
 displayTemples(temples);
 
 // -- Filtering Logic --
-const buttons = document.querySelectorAll("header nav button");
+const buttons = document.querySelectorAll("header nav a");
 buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
         const filter = btn.dataset.filter;
         let filtered = temples;
 
