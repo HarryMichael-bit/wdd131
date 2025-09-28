@@ -7,6 +7,9 @@
     <meta name="description" content="Dynamic picture album of temples with filtering and lazy loading." />
     <meta name="author" content="Michael Asamoah" />
     <title>Picture Album Enhancement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="styles/filtered-temples.css" />
     <!-- Overrides for larger viewports -->
@@ -14,16 +17,19 @@
 </head>
 <body>
     <header>
-        <h1>Temple Album</h1>
+        <nav id="menu">
         <nav>
-            <button data-filter="all">Home</button>
-            <button data-filter="old">Old</button>
-            <button data-filter="new">New</button>
-            <button data-filter="large">Large</button>
-            <button data-filter="small">Small</button>
+            <a href="#" data-filter="all">Home</button>
+            <a href="#" data-filter="old">Old</button>
+            <a href="#" data-filter="new">New</button>
+            <a href="#" data-filter="large">Large</button>
+            <a href="#" data-filter="small">Small</button>
         </nav>
     </header>
 
+    <main>
+        <h1>Temple Album</h1>
+    
     <!-- Templates definition -->
     <template id="temple-template">
         <article class="temple-card">
