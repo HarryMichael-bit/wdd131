@@ -1,0 +1,17 @@
+/* Typography */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333333; /* dark gray text */
+    background-color: #ffffff; /* white background */
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #1E90FF; /* Dodger Blue for headings */
+}
+
+/* Links and buttons */
+a, button {
+    color: #FF0000; /* red accent for CTAs */
+    font-weight: bold;
+}
