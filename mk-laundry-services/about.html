@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - M&K Laundry Services | Fast, Reliable Care</title>
+    <meta name="description" content="Learn about M&K Laundry Services, our mission, goals, and the team behind Accra's trusted laundry care.">
+    <link rel="stylesheet" href="styles/mk-laundry.css">
+</head>
+
+<body>
+    <header class="site-hearder">
+        <div class="container header-inner">
+            <div class="container header-inner">
+            <a class="logo" href="index.html" aria-label="M&K Laundry Services Home">
+                <img src="images/logo.png" alt="M&K Laundry Services Logo" height="40" loading="eager">
+                <span>M&K Laundry Services</span>
+            </a>
+            <nav aria-label="Primary">
+               <ul class="nav-list">
+                 <li><a href="index.html">Home</a></li>
+                 <li><a href="services.html">Services</a></li>
+                 <li><a href="about.html">About</a></li>
+                 <li><a href="about.html#contact-form-title">Contact</a></li>
+               </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h1>About M&K Laundry Services</h1>
+            <p>M&K Laundry Service is a trusted name in garment care, serving homes and businesses across
+                Greater Accra. We specialize in wash & fold, ironing, dry cleaning, stain removal, and 
+                pickup & delivery services. Our goal is to make laundry effortless, affordable, and 
+                reliable for everyone.</p>
+        </section>
+
+        <section class="section">
+            <h2>Our Goals</h2>
+            <ul>
+                <li>Provide consitent, top-tier laundry services across Accra</li>
+                <li>Expand our pickup & delivery network to reach more neighborhoods</li>
+                <li>Maintain eco-friendly practices in cleaning and packaging</li>
+                <li>Build lasting relationships with our customers through trust and care</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Meet Our Team</h2>
+            <div class="services-grid">
+                <article class="service-card">
+                    <h3>Kobina A. - Founder & CEO</h3>
+                    <img src="images/kobina.jpg" alt="Photo of Kobina A., Founder & CEO" class="team-photo" loading="lazy" width="200" height="200">
+                    <p> Kobina brings a passion for service and a vision for modern laundry care.
+                        He oversees operations and customer experience.</p>
+                </article>
+                <article class="service-card">
+                    <h3>Michael A. - Operations Manager</h3>
+                    <img src="images/michael.jpg" alt="Photo of Michael A., Operations Manager" class="team-photo" loading="lazy" width="200" height="200">
+                    <p>Michael ensures smooth scheduling, quality control, and timely deliveries across
+                        all service zones.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="contact-form-title">
+            <h1 id="contact-form-title">Send us a message</h1>
+            <form id="contact-form" novalidate>
+                <div class="form-field">
+                    <label for="name">Full name</label>
+                    <input type="text" id="name" name="name" required aria-required="true" minlength="2" placeholder="e.g., Ama Mensah">
+                    <small class="error" id="name-error" aria-live="polite"></small>
+                </div>
+
+                <div class="form-field">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" required aria-required="true" placeholder="e.g., ama@example.com">
+                    <small class="error" id="email-error" aria-live="polite"></small>
+                </div>
+
+                <div class="form-field">
+                    <label for="service">Service</label>
+                    <select id="service" name="service" required aria-required="true">
+                        <option value="">Choose a service</option>
+                        <option>Ironing</option>
+                        <option>Dry Cleaning</option>
+                        <option>Stain Removal</option>
+                        <option>Pickup & Delivery</option>
+                    </select>
+                    <small class="error" id="service-error" aria-live="polite"></small>
+                </div>
+
+                <div class="form-field">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required aria-required="true" minlength="10" placeholder="Tell us what you need..."></textarea>
+                    <small class="error" id="message-error" aria-live="polite"></small>
+                </div>
+
+                <button type="submit" class="btn btn-accent">Submit</button>
+                <p class="form-success" id="form-success" role="status" aria-live="polite"></p>
+            </form>
+        </section> 
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <section aria-labelledby="contact-title">
+                <h4 id="contact-title">Contact</h4>
+                <p><strong>Phone:</strong> +233 544 821 788</p>
+                <p><strong>WhatsApp:</strong> +233 207 945 145</p>
+            </section>
+            <section aria-labelledby="hours-title">
+                <h4 id="hours-title">Hours</h4>
+                <p>Mon-Sat: 8am-8pm</p>
+                <p>Sun: 12pm-7pm</p>
+            </section>
+            <section aria-labelledby="address-title"></section>
+                <h4 id="address-title">Address</h4>
+                <p>East Legon, Accra, Ghana</p>
+            </section>
+        </div>
+        <div class="container">
+            <small>&copy; <span id="year"></span>M&K Laundry Services. All rights reserved.</small>
+        </div>
+    </footer>
+
+    <script src="scripts/mk-laundry.js"></script>
+</body>
+</html>
