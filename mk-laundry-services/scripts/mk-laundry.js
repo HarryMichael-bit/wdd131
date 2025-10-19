@@ -7,7 +7,7 @@ const getCurrentPage = () => window.location.pathname.split("/").pop() || "index
 const highlightActiveNav = () => {
     const current = getCurrentPage();
     document.querySelectorAll(".nav-list a").forEach(link => {
-        if (link.getAttribute("href") === current) {
+        if (link.getAttribute("href").includes(current)) {
             link.classList.add("active");
         } else {
             link.classList.remove("active");
@@ -22,6 +22,11 @@ const initBackToTop = () => {
     btn.className = "btn btn-accent back-to-top";
     document.body.appendChild(btn);
 
+    btn.setAttribute("aria-label", "Back to top");
+    btn.setAttribute("type", "button")
+
+    document.body.appendChild(btn);
+
     const toggleVisibility = () => {
         btn.style.display = window.scrollY > 300 ? "block" : "none"; // Conditional branching
     };
@@ -30,7 +35,7 @@ const initBackToTop = () => {
     btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 };
 
-// year injection (DOM modificaation)
+// Year injection (DOM modificaation)
 const setYear = () => {
     const el = document.getElementById("year");
     if (el) el.textContent = new Date().getFullYear();
@@ -58,14 +63,19 @@ const services = [
     { name: "Pickup & Delivery", price: 0, unit: "order", turnaround: "Same-day" },
 ];
 
-const logServiceSummary = () => {
-    // Array method + template literals
-    const summary = services
-        .map(s => `Service: ${s.name} - GHS ${s.price} per ${s.unit} (${s.turnaround})`)
-        .join("\n");
-    console.log(summary);
+// Render services visibly in DOM (object + template literals)
+const renderServiceSummary = () => {
+    const list = document.getElementById("service-list");
+    if (!list) return;
+
+    services.forWach(services => {
+        const item = document.createElement("li");
+        item.textContent = `🧺 ${service.name} - GHS ${service.price} per ${service.unit} (${service.turnaround})`;
+        list.appendChild(item);
+    });
 };
 
+// CTA mode switcher
 const applyCtaMode = mode => {
     document.querySelectorAll(".btn.btn-accent, .btn.btn-primary").forEach(btn => {
         // Switch CTA buttons between accent red and primary blue
@@ -107,7 +117,7 @@ const initContactForm = () => {
             nameErr.textContent = "Please enter your full name (at least 2 characters).";
             valid = false;
         } else {
-            nameErr.txtContent = "";
+            nameErr.textContent = "";
         }
 
         // Email
@@ -141,6 +151,7 @@ const initContactForm = () => {
         successEl.textContent = summary;
 
         // Persist last inquiry in localStorage
+    try {
         localStorage.setItem("lastInquiry", JSON.stringify({
             name: nameEl.value.trim(),
             email: emailEl.value.trim(),
@@ -149,9 +160,45 @@ const initContactForm = () => {
             date: new Date().toISOString()
         }));
 
-        form.requestFullscreen();
+    } catch (e) {
+            console.warn("LocalStorage unavailable:", e);
+        }
+
+        // Reset the form after successful submission
+        form.reset();
     });
 };
+
+// DOM interaction: toggle banner visibility
+function initBannerToggle() {
+    const btn = document.getElementById("toggle-banner");
+    const banner = document.querySelector(".banner");
+
+    if (btn && banner) {
+        btn.addEventListener("click", () => {
+            banner.classList.toggle("hidden");
+            btn.textContent = banner.classList.contains("hidden")
+                ? "Show Pickup Info"
+                : "Hide Pickup Info";
+        });
+    }
+}
+
+// DOM interaction: live character counter
+const initMessageCounter = () => {
+    const messageEl = document.getElementById("message");
+    if (!messageEl) return;
+
+    const counter = document.createElement("small");
+    counter.id = "char-count";
+    counter.style.display = "block";
+    counter.style.marginTop = "4px";
+    messageEl.parentNode.appendChild(counter);
+
+    messageEl.addEventListener("input", () => {
+        counter.textContent = `${messageEl.value.length} characters`;
+    });
+}
 
 //Init
 document.addEventListener("DOMContentLoaded", () => {
@@ -159,8 +206,10 @@ document.addEventListener("DOMContentLoaded", () => {
     initBackToTop();
     setYear();
     initSmoothAnchors();
-    logServiceSummary();
+    renderServiceSummary();
     initContactForm();
+    initBannerToggle();
+    initMessageCounter();
 
     document.getElementById("year").textContent = new Date().getFullYear();
 });
